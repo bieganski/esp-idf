@@ -19,6 +19,7 @@
 
 #include "esp_log.h"
 #include "nvs_flash.h"
+
 /* BLE */
 #include "esp_nimble_hci.h"
 #include "nimble/nimble_port.h"
@@ -28,6 +29,10 @@
 #include "console/console.h"
 #include "services/gap/ble_svc_gap.h"
 #include "bleprph.h"
+
+
+// local imports
+#include "common.h"
 
 static const char *tag = "NimBLE_BLE_PRPH";
 static int bleprph_gap_event(struct ble_gap_event *event, void *arg);
@@ -332,6 +337,8 @@ void
 app_main(void)
 {
     int rc;
+
+    UART_config();
 
     /* Initialize NVS — it is used to store PHY calibration data */
     esp_err_t ret = nvs_flash_init();
