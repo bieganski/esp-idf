@@ -4,7 +4,9 @@
 #include <driver/uart.h>
 
 void UART_config() {
-        const int uart_num = UART_NUM_2;
+    
+    const int uart_num = UART_NUM_0; // use 0 for ESP32C3 and 2 for ESP32
+    
     uart_config_t uart_config = {
         .baud_rate = 115200,
         .data_bits = UART_DATA_8_BITS,
